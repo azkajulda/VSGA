@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="natgeo.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="">
+                    <img width="100" height="50" src="data:image/png;base64,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" alt="natgeo">
+                </a></li>
+                <li class="right txt"><a href="">Subscribe</a></li>
+                <li><a href="txt">
+                    <img width="20" height="20" src="http://cdn.onlinewebfonts.com/svg/img_548469.png" alt="people">
+                </a></li>
+                <li><a href="txt">
+                    <img width="20" height="20" src="https://static.thenounproject.com/png/14173-200.png" alt="search">
+                </a></li>
+                <li><a href="txt">Menu</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="landing">
+        <h1>EXPLORE TODAY</h1>
+        <p>Through the eyes of our Explorers, photographers, journalists, and filmmakers</p>
+        
+        <section class="row">
+            <section class="columnKiri">
+                <h2>Latest Story</h2>
+                <section class="columnKiri m-20">
+                    <img src="img/ok.jpg" height="80" width="80" alt="">
+                    <img class="m-20" src="img/ok.jpg" height="80" width="80" alt="">
+                    <img class="m-20" src="img/ok.jpg" height="80" width="80" alt="">
+                    <img class="m-20" src="img/ok.jpg" height="80" width="80" alt="">
+                    <img class="m-20" src="img/ok.jpg" height="80" width="80" alt="">
+                    <img class="m-20" src="img/ok.jpg" height="80" width="80" alt="">
+                </section>
+
+                <section class="columnKanan">
+                    <h3>Ini merupakan Artefak</h3>
+                    <h3>Ini Zaman </h3>
+
+                    <h3 class="m-40">Ini merupakan Artefak</h3>
+                    <h3>Ini Zaman </h3>
+
+                    <h3 class="m-40">Ini merupakan Artefak</h3>
+                    <h3>Ini Zaman </h3>
+
+                    <h3 class="m-40">Ini merupakan Artefak</h3>
+                    <h3>Ini Zaman </h3>
+                    
+                    <h3 class="m-40">Ini merupakan Artefak</h3>
+                    <h3>Ini Zaman </h3>
+
+                    <h3 class="m-40">Ini merupakan Artefak</h3>
+                    <h3>Ini Zaman </h3> <br>
+                    <p>See more ></p>
+                </section>
+
+            </section>
+            <section class="columnKanan">
+                <section class="image">
+                    <h2>Pemandangan Indah</h2>
+                </section>
+
+                <section class="column">
+                    <img src="img/download.jpg" alt="">
+                    <section class="judul">
+                        <p>SCIENCE</p><br>
+                        <h3>mantap</h3>
+                    </section>
+                </section>
+
+                <section class="column">
+                    <img src="img/download.jpg" alt="">
+                    <section class="judul">
+                        <p>SCIENCE</p><br>
+                        <h3>mantap</h3>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <section class="watch">
+        <h1>Watch</h1>
+        <p>Go Further with Nat Geo TV. Anytime. Anywhere.</p>
+
+        <video width="1000" height="800" autoplay loop muted>
+            <source src="video/ng.mp4" type="video/mp4">
+        </video>
+    </section>
+</body>
+</html>
