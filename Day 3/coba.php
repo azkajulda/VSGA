@@ -12,10 +12,10 @@
         $ganjilAtauGenap = $i % 2;
         switch($ganjilAtauGenap){
             case 0:
-                echo "Ini Bilangan Genap ".$i."<br>";
+                echo "Selamat Siang Genap ".$i."<br>";
                 break;
             default:
-                echo "Ini Bilangan Ganjil ".$i."<br>";
+                echo "Selamat Siang Ganjil ".$i."<br>";
                 break;
         }
     }
