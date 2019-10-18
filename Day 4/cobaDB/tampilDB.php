@@ -43,9 +43,8 @@
                  $database = "db_retail";
              
                 $koneksi = mysqli_connect($host, $username, $password, $database);
-
-                $barang = mysqli_query($koneksi, "SELECT t_barang.nama_barang, t_kategori.nama_kategori, t_barang.harga FROM t_kategori JOIN t_barang ON t_kategori.id_kategori=t_barang.id_kategori");
                 $no = 1;
+                $barang = mysqli_query($koneksi, "SELECT t_barang.nama_barang, t_kategori.nama_kategori, t_barang.harga FROM t_kategori JOIN t_barang ON t_kategori.id=t_barang.id_kategori");
                 // foreach ($barang as $data) {
                 //     echo "<tr>
                 //             <td>$no</td>
@@ -79,8 +78,9 @@
                     echo "<tr><td colspan='2' align='right'>Total : </td><td>Rp ".number_format($total,3)."</td></tr>";
                 } else {
                     foreach($barang as $data){
-                        echo "<tr><td>".$data["nama_barang"]."</td><td>".$data["nama_kategori"]
+                        echo "<tr><td>".$no."</td>  <td>".$data["nama_barang"]."</td><td>".$data["nama_kategori"]
                         ."</td><td>".$data['harga']."</td></tr>";
+                        $no++;
                     }
                 }
             ?>
