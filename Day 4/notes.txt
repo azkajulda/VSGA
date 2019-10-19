@@ -1,0 +1,4 @@
+include = akan dijalankan ketika ada filenya dan tetap dijalankan walaupun tidak ada filenya tetapi memunculkan eror
+required = akan dijalankan ketika ada filenya dan tidak dijalankan code sealnjutnya jika tidak ada filenya memunculkan eror
+include_once = dijalankan sekali saja jika double
+required_once = dijalankan sekali saja jika double 
