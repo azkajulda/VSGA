@@ -39,6 +39,13 @@
     }elseif(isset($_POST['delete'])){
         $id = $_POST['delete'];
 
+        //Delete foto local
+        $sqlGetFoto = "SELECT * FROM t_mahasiswa WHERE id='$id'";
+        $query = mysqli_query($conn, $sqlGetFoto);
+        $result = mysqli_fetch_assoc($query);
+        $path = $result['foto'];
+        unlink($path);
+
         $sql = "DELETE FROM t_mahasiswa WHERE id = '$id'";
         mysqli_query($conn, $sql);
         echo "<script type='text/javascript'>alert('Data telah terhapus');</script>";
@@ -79,6 +86,13 @@
                 echo "Sorry, there was an error uploading your file.";
             }
         }
+
+        // For Delete Foto
+        $sqlGetFoto = "SELECT * FROM t_mahasiswa WHERE id='$id'";
+        $query = mysqli_query($conn, $sqlGetFoto);
+        $result = mysqli_fetch_assoc($query);
+        $path = $result['foto'];
+        unlink($path);
         
         $sql = "UPDATE t_mahasiswa SET nim='$nim', nama='$nama', kelas='$kelas', jk='$gender', fakultas='$fakultas', foto='$target_file' WHERE id='$id'";
         mysqli_query($conn, $sql);
@@ -95,6 +109,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script>
@@ -167,7 +182,7 @@
                     </select>
                 </div>
                 <div class="custom-file mb-20">
-                    <input type="file" id="foto" name="foto" required>
+                    <input type="file" id="foto" name="foto">
                 </div>
                 <center><button type="submit" class="btn btn-success" name="save">Save</button></center>
             </form><br><br>
@@ -216,9 +231,11 @@
                         <option <?php if($data['fakultas']=="Fakultas Ilmu Terapan"){echo "selected";}?> value="Fakultas Ilmu Terapan">Fakultas Ilmu Terapan (FIT)</option>
                     </select>
                 </div>
+                <center><img width='25%' height='100' src="<?php echo './'.$data['foto']?>"></center>
                 <div class="custom-file mb-20">
                     <input type="file" id="foto" name="foto">
                 </div>
+                <center><button type="submit" class="btn btn-success" name="update">Update</button></center>
                 <?php }?>
 
                 <!-- If null -->
@@ -263,8 +280,8 @@
                     <div class="custom-file mb-20">
                         <input type="file" id="foto" name="foto" disabled>
                     </div>
+                    <center><button type="submit" class="btn btn-success" name="update" disabled>Update</button></center>
                 <?php }?>
-                <center><button type="submit" class="btn btn-success" name="update">Update</button></center>
             </form>
         </section>
 
@@ -288,6 +305,11 @@
                             $sql = "SELECT * FROM t_mahasiswa";
                             $result = mysqli_query($conn, $sql);
                             foreach ($result as $data) {
+                                if ($data['foto'] == 'uploads/' || $data['foto'] == '') {
+                                    $foto = './uploads/person-male.png';
+                                }else {
+                                    $foto = './'.$data['foto'];
+                                }
                                 echo "<tr>
                                             <td>$no</td>
                                             <td>".$data['nama']."</td>
@@ -296,11 +318,11 @@
                                             <td>".$data['jk']."</td>
                                             <td>".$data['fakultas']."</td>
                                             <td>
-                                                <img width='50' height='50' src='./".$data['foto']."'>
+                                                <img width='50' height='50' src='".$foto."'>
                                             </td>
                                             <td>
-                                                <button type='submit' class='btn btn-danger' name='delete' value='".$data['id']."'>Delete</button>
-                                                <button type='submit' class='btn btn-primary' name='edit' value='".$data['id']."'>Edit</button>
+                                                <button type='submit' class='btn btn-danger' name='delete' value='".$data['id']."'><i class='fa fa-trash'></i> Delete</button>
+                                                <button type='submit' class='btn btn-primary' name='edit' value='".$data['id']."'><i class='fa fa-pencil'></i> Edit</button>
                                             </td>
                                             </tr>";
                                     $no++;
