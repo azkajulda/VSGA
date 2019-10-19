@@ -8,12 +8,37 @@
         $gender = $_POST['gender'];
         $fakultas = $_POST['jurusan'];
 
-        $sql = "INSERT INTO t_mahasiswa (nim, nama, kelas, jk, fakultas) VALUES ('$nim', '$nama', '$kelas', '$gender', '$fakultas')";
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["foto"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        $check = getimagesize($_FILES["foto"]["tmp_name"]);
+        if($check !== false) {
+            // echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
+                // echo "The file ". basename( $_FILES["foto"]["name"]). " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+
+        $sql = "INSERT INTO t_mahasiswa (nim, nama, kelas, jk, fakultas, foto) VALUES ('$nim', '$nama', '$kelas', '$gender', '$fakultas', '$target_file')";
         mysqli_query($conn,$sql);
         echo "<script type='text/javascript'>alert('Berhasil Menambah Data');</script>";
     }elseif(isset($_POST['delete'])){
         $id = $_POST['delete'];
-        
+
         $sql = "DELETE FROM t_mahasiswa WHERE id = '$id'";
         mysqli_query($conn, $sql);
         echo "<script type='text/javascript'>alert('Data telah terhapus');</script>";
@@ -29,8 +54,33 @@
         $kelas = $_POST['kelas'];
         $gender = $_POST['gender'];
         $fakultas = $_POST['jurusan'];
+
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["foto"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+        $check = getimagesize($_FILES["foto"]["tmp_name"]);
+        if($check !== false) {
+            // echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+        } else {
+            if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_file)) {
+                // echo "The file ". basename( $_FILES["foto"]["name"]). " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
         
-        $sql = "UPDATE t_mahasiswa SET nim='$nim', nama='$nama', kelas='$kelas', jk='$gender', fakultas='$fakultas' WHERE id='$id'";
+        $sql = "UPDATE t_mahasiswa SET nim='$nim', nama='$nama', kelas='$kelas', jk='$gender', fakultas='$fakultas', foto='$target_file' WHERE id='$id'";
         mysqli_query($conn, $sql);
         echo "<script type='text/javascript'>alert('Data telah teredit');</script>";
     }
@@ -78,7 +128,7 @@
     <section class="row">
         <section class="col-md-3">
             <h4>Tambah Data</h4>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="text" name="nim" class="form-control" id="nim" placeholder="NIM">
                 </div>
@@ -116,11 +166,14 @@
                     <option value="Fakultas Ilmu Terapan">Fakultas Ilmu Terapan (FIT)</option>
                     </select>
                 </div>
+                <div class="custom-file mb-20">
+                    <input type="file" id="foto" name="foto" required>
+                </div>
                 <center><button type="submit" class="btn btn-success" name="save">Save</button></center>
             </form><br><br>
 
             <h4>Edit Data</h4>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
                 <?php if(isset($_POST['edit'])){?>
                 <?php foreach ($data_mhs as $data) {?>
                 <div class="form-group">
@@ -163,6 +216,9 @@
                         <option <?php if($data['fakultas']=="Fakultas Ilmu Terapan"){echo "selected";}?> value="Fakultas Ilmu Terapan">Fakultas Ilmu Terapan (FIT)</option>
                     </select>
                 </div>
+                <div class="custom-file mb-20">
+                    <input type="file" id="foto" name="foto">
+                </div>
                 <?php }?>
 
                 <!-- If null -->
@@ -204,6 +260,9 @@
                             <option value="Fakultas Ilmu Terapan">Fakultas Ilmu Terapan (FIT)</option>
                         </select>
                     </div>
+                    <div class="custom-file mb-20">
+                        <input type="file" id="foto" name="foto" disabled>
+                    </div>
                 <?php }?>
                 <center><button type="submit" class="btn btn-success" name="update">Update</button></center>
             </form>
@@ -220,6 +279,7 @@
                         <th>Kelas</th>
                         <th>Gender</th>
                         <th>Fakultas</th>
+                        <th>Foto</th>
                         <th>Action</th>
                     </thead>
                     <?php
@@ -235,6 +295,9 @@
                                             <td>".$data['kelas']."</td>
                                             <td>".$data['jk']."</td>
                                             <td>".$data['fakultas']."</td>
+                                            <td>
+                                                <img width='50' height='50' src='./".$data['foto']."'>
+                                            </td>
                                             <td>
                                                 <button type='submit' class='btn btn-danger' name='delete' value='".$data['id']."'>Delete</button>
                                                 <button type='submit' class='btn btn-primary' name='edit' value='".$data['id']."'>Edit</button>

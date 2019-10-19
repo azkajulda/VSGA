@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2019 at 11:53 AM
+-- Generation Time: Oct 19, 2019 at 04:51 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.3.7
 
@@ -34,19 +34,21 @@ CREATE TABLE `t_mahasiswa` (
   `nama` varchar(50) NOT NULL,
   `kelas` varchar(10) NOT NULL,
   `jk` varchar(15) NOT NULL,
-  `fakultas` varchar(50) NOT NULL
+  `fakultas` varchar(50) NOT NULL,
+  `foto` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `t_mahasiswa`
 --
 
-INSERT INTO `t_mahasiswa` (`id`, `nim`, `nama`, `kelas`, `jk`, `fakultas`) VALUES
-(1, '1202164201', 'Asep Sutanda as', 'SI-40-03', 'Laki-laki', 'Fakultas Rekayasa Industri'),
-(2, '1202164202', 'Mohamad Azka Julda Suparman', 'SI-40-03', 'Laki-laki', 'Fakultas Rekayasa Industri'),
-(3, '1202164203', 'Hanoka kosaki', 'SI-40-02', 'Perempuan', 'Fakultas Ilmu Terapan'),
-(4, '1202164204', 'Dade Stepen', 'SI-40-02', 'Laki-laki', 'Fakultas Ekonomi Bisnis'),
-(28, '1202164205', 'Azuka Shimada', 'SI-40-01', 'Laki-laki', 'Fakultas Rekayasa Industri');
+INSERT INTO `t_mahasiswa` (`id`, `nim`, `nama`, `kelas`, `jk`, `fakultas`, `foto`) VALUES
+(1, '1202164201', 'Asep Sutanda as', 'SI-40-03', 'Laki-laki', 'Fakultas Rekayasa Industri', 'uploads/Foto_Formal_Sudharmono.jpg'),
+(2, '1202164202', 'Mohamad Azka Julda Suparman', 'SI-40-03', 'Laki-laki', 'Fakultas Rekayasa Industri', 'uploads/DSC1196.jpg'),
+(3, '1202164203', 'Hanoka kosaki', 'SI-40-02', 'Perempuan', 'Fakultas Ilmu Terapan', 'uploads/Kemeja-Formal-Wanita-Untuk-Acara-Resmi-dan-Kerja-300x300.png'),
+(4, '1202164204', 'Dade Stepen', 'SI-40-02', 'Laki-laki', 'Fakultas Ekonomi Bisnis', 'uploads/387399-1983245.jpg'),
+(28, '1202164205', 'Azuka Shimada', 'SI-40-01', 'Laki-laki', 'Fakultas Rekayasa Industri', 'uploads/FlatDesign.jpg'),
+(33, '1202167213', 'Manda Update', 'TI-42-01', 'Perempuan', 'Fakultas Rekayasa Industri', 'uploads/Formal-Pant-Suits-for-Women-Business-Suits-Formal-Office-Suits-Work-Black-Blazer-Ladies-Office-Uniform.webp');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +68,7 @@ ALTER TABLE `t_mahasiswa`
 -- AUTO_INCREMENT for table `t_mahasiswa`
 --
 ALTER TABLE `t_mahasiswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
