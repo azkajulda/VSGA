@@ -47,13 +47,8 @@
                 <table class="table table-hover" id="tableMhs">
                     <thead> 
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>NIM</th>
-                        <th>Kelas</th>
-                        <th>Gender</th>
-                        <th>Fakultas</th>
-                        <th>Foto</th>
-                        <th>Action</th>
+                        <th>Judul</th>
+                        <th>isi</th>
                     </thead>
                     <?php
                         if($conn){
