@@ -6,7 +6,7 @@
 }
 
 .dashboard {
-    margin-top: 200px; 
+    margin: 122px auto; 
 }
 
 h1{
@@ -16,7 +16,7 @@ h1{
 .col-md-3{
     padding:80px;
     max-height: 850px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .col-md-9{

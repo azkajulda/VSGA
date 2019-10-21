@@ -4,7 +4,7 @@
 <link href="../../../assets/css/dashboard.css" rel="stylesheet" />
     <section class="row dashboard">
         <section class="col-md-3">
-            <h4>Tambah Data</h4>
+            <h4>Add Data</h4>
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <input required type="text" name="nim" class="form-control" id="nim" placeholder="NIM">
@@ -42,7 +42,7 @@
         </section>
         
         <section class="col-md-9">
-            <h1>Data Mahasiswa</h1><br>
+            <h1>Article Data</h1><br>
             <form class="data-mhs" action="" method="post">
                 <table class="table table-hover" id="tableMhs">
                     <thead> 
