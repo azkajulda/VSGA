@@ -1,0 +1,367 @@
+body{
+	margin:0px;
+	background-color:whitesmoke;
+}
+
+.header{
+	height:50px;
+	background-color:white;
+}
+
+.logo{
+	height:30px;
+	margin:10px 0px 0px 15px;
+}
+
+.header .kanan{
+	height:35px;
+	float:right;
+	padding-bottom:15px;
+}
+
+.header .kanan .ikon{
+	height:20px;
+	margin-top:15px;
+	margin-bottom:15px;
+	margin-left:5px;
+	display:inline-block;
+}
+
+.header .kanan .teks{
+	font-family:Century Gothic;
+	font-size:14px;
+	margin:15px 5px 15px 50px;
+}
+
+.konten{
+	height:auto;
+	width:100%;
+	background:url('img/pemandangan.jpg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	padding-bottom:50px;
+	content:"";
+	clear:both;
+	display:table;
+}
+
+.judul{
+	letter-spacing:1px;
+	padding-top: 50px;
+    padding-bottom: 80px;
+}
+
+h1{
+	font-family: 'Century Gothic';
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subjudul{
+	font-family: 'Century Gothic';
+    color: #ffffff;
+    text-align: center;
+}
+
+.list{
+	padding:0px 170px 0px 170px;
+	content:"";
+	clear:both;
+	display:table;	
+}
+
+.clearfix{
+	content:"";
+	clear:both;
+	display:table;	
+}
+
+.list .kiri{
+	width:350px;
+	display:inline-block;
+	padding-right:30px;
+}
+
+.list .kanan{
+	width:620px;
+	float:right;
+	padding-right:0px;
+}
+
+.teks22_putih{
+	font-family:'Century Gothic';
+	font-size: 22px;
+	font-weight:bold;
+	letter-spacing:1px;
+	color: white;
+}
+
+.daftar{
+	list-style-type:none;
+	padding:0px;
+}
+
+.daftar li{
+	clear:left;
+}
+
+.list_gambar{
+	width:90px;
+	height:90px;
+	float:left;
+	margin-right:20px;
+	margin-bottom:30px
+}
+
+.daftar li p {
+	font-family: 'Century Gothic';
+	font-size: 16px;
+	display:inline;
+	color: white;
+}
+
+.teks16_putih{
+	font-family: 'Century Gothic';
+	font-size: 16px;
+	color: white;
+}
+
+.teks14_putih{
+	font-family: 'Century Gothic';
+	font-size: 14px;
+	color: white;
+}
+
+.teks_seemore{
+	font-family: 'Century Gothic';
+	font-size: 14px;
+	font-weight:bold;
+	color: white;
+}
+
+.teks_seemore:hover{
+	color:black;
+	background-color:gold;
+}
+
+.gambar_besar{
+	width:inherit;
+	height:400px;
+	position:relative;
+	margin-bottom:30px;
+}
+
+.kanan .gambar_besar .teks{
+	font-family:'Century Gothic';
+	font-size:32px;
+	font-weight:bold;
+	color:white;
+	margin-bottom:30px;
+}
+
+.bawah{
+	width:295px;
+	display:inline-block;
+	background-color:white;
+}
+
+.teks12{
+	font-family:'Century Gothic';
+	font-size:12px;
+	font-weight:bold;
+}
+
+.teks20{
+	font-family:'Century Gothic';
+	font-size:20px;
+}
+
+.bg_putih {
+	height:auto;
+	background-color:whitesmoke;
+	clear:left;
+	padding:50px 170px 0px 170px;
+	text-align:center;
+	margin-bottom:70px;
+}
+
+.bg_putih .iklan{
+	width:700px;
+	height:100px;
+	display:block;
+	margin-top:5px;
+	margin-right:auto;
+	margin-left:auto;
+	margin-bottom:50px;
+}
+
+.video{
+	width:inherit;
+	height:550px;
+	display:block;
+	position:relative;
+	margin-bottom:25px;
+}
+
+.teks_vid{
+	width:300px;
+	height:40px;
+	padding:0 40px;
+	background-color:gold;
+	text-align:center;
+	font-family:'Century Gothic';
+	font-size:12px;
+	font-weight:bold;
+	letter-spacing:1px;
+	line-height:40px;
+	color:black;
+	/*position:absolute;
+	bottom:20px;
+	left:20px;*/
+}
+
+.teks_vid:hover{
+	background-color:whitesmoke;
+}
+
+.daftar2{
+	width:inherit;
+	height:300px;
+	margin-bottom:70px;
+}
+.daftar2 ul{
+	list-style-type:none;
+	padding:0px;
+}
+.daftar2 ul li {
+	width:180px;
+	height:300px;
+	margin:0px 3.3px;
+	display:inline-block;
+}
+
+.gambar_sedang{
+	width:inherit;
+	height:400px;
+	position:relative;
+}
+
+.gambar_sedang .teks{
+	width:inherit;
+	position:absolute;
+	display:block;
+	font-family:'Century Gothic';
+	font-size:30px;
+	font-weight:bold;
+	letter-spacing:1px;
+	color:white;
+	text-align:center;
+}
+
+.gambar_sedang .tombol{
+	width:inherit;
+	position:absolute;
+	display:block;
+	bottom:30px;
+}
+
+.gambar_besar2{
+	width:1009px;
+	position:relative;
+	margin-bottom:30px;
+}
+
+.gambar_besar2 div{
+	width:1009px;
+	position:absolute;
+	font-family:'Century Gothic';
+	font-size:14px;
+	font-weight:bold;
+	color:white;
+}
+
+.teks40{
+	font-family:'Century Gothic';
+	font-size:40px;
+	font-weight:bold;
+	color:white;
+}
+
+.gambar_kotak{
+	width:300px;
+	height:300px;
+	margin:15px;
+	display:inline-block;
+}
+
+.konten2{
+	background:url('img/pemandangan.jpg');
+	padding:80px 100px;
+	letter-spacing:2px;
+}
+
+.judul2{
+	font-family:'Century Gothic';
+	color:white;
+	text-align:center;
+	margin-bottom:20px;
+}
+
+.input_email{
+	height:50px;
+	display:inline-block;
+	border:0px;
+	margin:0px;
+	padding:5px;
+}
+
+.tombol{
+	width:50px;
+	height:50px;
+	border:0px;
+	margin:0px;
+	padding:0px;
+	display:inline-block;
+}
+
+.daftar3{
+	display:inline-block;
+	display:inline-block;
+}
+
+.teks_vid2{
+	width:300px;
+	height:40px;
+	padding:0 40px;
+	background-color:whitesmoke;
+	text-align:center;
+	font-family:'Century Gothic';
+	font-size:12px;
+	font-weight:bold;
+	letter-spacing:1px;
+	line-height:40px;
+	color:black;
+	/*position:absolute;
+	bottom:20px;
+	left:20px;*/
+}
+
+.teks_vid2:hover{
+	background-color:black;
+	color:white;
+}
+
+.daftar_bawah{
+	list-style-type:none;
+	padding:0px;
+	font-family:'Century Gothic';
+	font-size:11px;
+	color:white;
+	
+}
+
+.daftar_bawah li {
+	padding-bottom:10px
+}
