@@ -1,0 +1,41 @@
+.navbar.navbar-transparent {
+    background-color: #f96332 !important;
+    box-shadow: none;
+    color: #FFFFFF;
+    padding-top: 20px !important;
+}
+
+.dashboard {
+    margin-top: 200px; 
+}
+
+h1{
+    text-align:center;
+}
+
+.col-md-3{
+    padding:80px;
+    max-height: 850px;
+    overflow-y: scroll;
+}
+
+.col-md-9{
+    padding:15px;
+}
+
+form.data-mhs{
+    max-height: 810px;
+    overflow-y: auto;
+}
+
+.mb-20{
+    margin-bottom:20px;
+}
+
+fieldset{
+    margin-bottom:0px;
+}
+
+.row {
+    margin-right:0px;
+}

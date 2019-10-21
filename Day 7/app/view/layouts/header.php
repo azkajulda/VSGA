@@ -39,8 +39,14 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="articles.php" onclick="scrollToDownload()">
-              <i class="now-ui-icons now-ui-icons education_paper"></i>
+              <i class="now-ui-icons education_paper"></i>
               <p>Article</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="dashboard.php" onclick="scrollToDownload()">
+              <i class="now-ui-icons business_chart-bar-32"></i>
+              <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item dropdown">

@@ -23,7 +23,7 @@
             <p>Action for edit and delete a exist article</p>
             
             <form action="" method="get">
-                <button type="submit" class="btn btn-primary" name="edit" value="<?=$data['id']?>"><i class="now-ui-icons design-2_ruler-pencil"></i> Edit</button>
+                <a href="editArticle.php?id=<?= $data['id']?>" class="btn btn-primary"><i class="now-ui-icons design-2_ruler-pencil"></i> Edit</a>
                 <button type="submit" class="btn btn-danger" name="delete" value="<?=$data['id']?>"><i class="now-ui-icons ui-1_simple-delete"></i> Delete</button>
             </form>
         </div>
