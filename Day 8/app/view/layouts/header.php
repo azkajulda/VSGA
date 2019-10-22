@@ -27,7 +27,7 @@
   <nav class="navbar navbar-expand-lg bg-primary fixed-top navbar-transparent " color-on-scroll="400">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="landing-page.php" rel="tooltip" title="Hi, Welcome" data-placement="bottom" target="_blank">
+        <a class="navbar-brand" href="landing-page.php" rel="tooltip" title="Hi, Welcome" data-placement="bottom" target="_self">
           Azka's Article
         </a>
         <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,12 @@
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="../../../assets/img/blurred-image-1.jpg">
         <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="landing-page.php" onclick="scrollToDownload()">
+              <i class="now-ui-icons shopping_shop"></i>
+              <p>Home</p>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="articles.php" onclick="scrollToDownload()">
               <i class="now-ui-icons education_paper"></i>
@@ -53,7 +59,7 @@
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
-                <img width="25" height="25" src="../../../assets/img/julie.jpg" alt="Thumbnail Image" class="rounded-circle img-raised">
+                <img width="25" height="25" src="../../../assets/<?= $_SESSION['foto']?>" alt="Thumbnail Image" class="rounded-circle img-raised">
                 <p><?= $_SESSION['nama']?></p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">

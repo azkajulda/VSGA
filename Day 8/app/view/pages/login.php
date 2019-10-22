@@ -33,7 +33,7 @@
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
-                  <input type="text" class="form-control" name="nama" placeholder="Nama">
+                  <input type="email" class="form-control" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-group no-border input-lg">
                   <div class="input-group-prepend">
@@ -41,21 +41,11 @@
                       <i class="now-ui-icons text_caps-small"></i>
                     </span>
                   </div>
-                  <input type="text" name="nim" placeholder="NIM" class="form-control">
+                  <input type="password" name="password" placeholder="Password" class="form-control" required>
                 </div>
               </div>
               <div class="card-footer text-center">
                 <button type="submit" name="login" class="btn btn-primary btn-round btn-lg btn-block">Submit</button>
-                <!-- <div class="pull-left">
-                  <h6>
-                    <a href="#" class="link">Create Account</a>
-                  </h6>
-                </div>
-                <div class="pull-right">
-                  <h6>
-                    <a href="#" class="link">Need Help?</a>
-                  </h6>
-                </div> -->
             </form>
             </div>
           </div>

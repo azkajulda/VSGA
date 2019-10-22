@@ -9,8 +9,8 @@
           <img class="rounded-circle img-raised" width="200" height="200" src="../../../assets/<?= $_SESSION['foto']?>" alt="Foto">
         </div>
         <h3 class="title"><?= $_SESSION['nama']?></h3>
-        <p class="category"><?= $_SESSION['jenis_kelamin']?></p>
-        <p class="category"><?= $_SESSION['tempat_lahir']?></p>
+        <p class="category"><?= $_SESSION['email']?></p>
+        <p class="category">Telepon : <?= $_SESSION['tlp']?></p>
       </div>
     </div>
     <div class="section">
