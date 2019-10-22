@@ -1,16 +1,16 @@
 <?php require_once('../layouts/header.php')?>
 <?php require_once('../../controller/connection.php')?>
-<?php require_once('../../controller/ProfileController.php')?>
+<?php require_once('../../controller/UserController.php')?>
     <div class="page-header clear-filter page-header-small" filter-color="orange">
       <div class="page-header-image" data-parallax="true" style="background-image:url('../../../assets/img/bg5.jpg');">
       </div>
       <div class="container">
         <div class="photo-container">
-          <img class="rounded-circle img-raised" width="200" height="200" src="../../../assets/<?= $profile['foto']?>" alt="Foto">
+          <img class="rounded-circle img-raised" width="200" height="200" src="../../../assets/<?= $_SESSION['foto']?>" alt="Foto">
         </div>
-        <h3 class="title"><?= $profile['nama']?></h3>
-        <p class="category"><?= $profile['jenis_kelamin']?></p>
-        <p class="category"><?= $profile['tempat_lahir']?></p>
+        <h3 class="title"><?= $_SESSION['nama']?></h3>
+        <p class="category"><?= $_SESSION['jenis_kelamin']?></p>
+        <p class="category"><?= $_SESSION['tempat_lahir']?></p>
       </div>
     </div>
     <div class="section">

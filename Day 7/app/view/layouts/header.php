@@ -1,3 +1,4 @@
+<?php require_once('../../controller/UserController.php')?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,6 +44,7 @@
               <p>Article</p>
             </a>
           </li>
+          <?php if (isset($_SESSION['nama'])){?>
           <li class="nav-item">
             <a class="nav-link" href="dashboard.php" onclick="scrollToDownload()">
               <i class="now-ui-icons business_chart-bar-32"></i>
@@ -52,16 +54,30 @@
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
                 <img width="25" height="25" src="../../../assets/img/julie.jpg" alt="Thumbnail Image" class="rounded-circle img-raised">
+                <p><?= $_SESSION['nama']?></p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
               <a class="dropdown-item" href="profile.php">
                 <i class="now-ui-icons users_circle-08"></i> My Profile
               </a>
+              <form action="" method="get">
+              <button type="submit" name="logout" class="dropdown-item">
+                <i class="now-ui-icons sport_user-run"></i> Logout
+              </button>
+              </form>
               <!-- <a class="dropdown-item" target="_blank" href="https://demos.creative-tim.com/now-ui-kit/docs/1.0/getting-started/introduction.html">
                 <i class="now-ui-icons design_bullet-list-67"></i> Documentation
               </a> -->
             </div>
           </li>
+          <?php }else{?>
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">
+              <i class="now-ui-icons objects_spaceship"></i>
+              <p>Login</p>
+            </a>
+          </li>
+          <?php }?>
           <!-- <li class="nav-item">
             <a class="nav-link btn btn-neutral" href="https://www.creative-tim.com/product/now-ui-kit-pro" target="_blank">
               <i class="now-ui-icons arrows-1_share-66"></i>
