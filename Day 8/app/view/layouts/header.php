@@ -1,4 +1,6 @@
+<?php require_once('../../controller/connection.php')?>
 <?php require_once('../../controller/UserController.php')?>
+<?php require_once('../../controller/ArticleController.php')?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,9 +19,17 @@
   <!-- CSS Files -->
   <link href="../../../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../../../assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../../../assets/demo/demo.css" rel="stylesheet" />
   <link href="../../../assets/css/azka.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready( function () {
+        $('#tableMhs').DataTable();
+    } );
+  </script> 
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -44,19 +54,46 @@
               <p>Home</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="articles.php" onclick="scrollToDownload()">
-              <i class="now-ui-icons education_paper"></i>
-              <p>Article</p>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
+                <i class="now-ui-icons education_paper"></i>
+                <p>Article</p>
             </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
+              <form action="" method="get">
+              <?php if($conn){
+                    $selectKategori = "SELECT * FROM tb_kategori";
+                    $dataKategori = mysqli_query($conn, $selectKategori);
+                    foreach ($dataKategori as $data) {?>
+                    <button type="submit" name="kategori" value="<?= $data['id_kategori']?>" class="dropdown-item">
+                      <?= $data['name']?>
+                    </button>
+              <?php }}else{ echo "Database Error";}?>
+              </form>
+            </div>
           </li>
           <?php if (isset($_SESSION['nama'])){?>
-          <li class="nav-item">
-            <a class="nav-link" href="dashboard.php" onclick="scrollToDownload()">
-              <i class="now-ui-icons business_chart-bar-32"></i>
-              <p>Dashboard</p>
+            <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
+                <i class="now-ui-icons business_chart-bar-32"></i>
+                <p>Dashboard</p>
             </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
+              <a href="" class="dropdown-item">
+                Kelola Kategori
+              </a>
+              <a href="dashboardPost.php" class="dropdown-item">
+                Kelola Post
+              </a>
+              <a href="" class="dropdown-item">
+                Kelola Statis
+              </a>
+              <a href="" class="dropdown-item">
+                Kelola Komentar
+              </a>
+            </div>
           </li>
+
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
                 <img width="25" height="25" src="../../../assets/<?= $_SESSION['foto']?>" alt="Thumbnail Image" class="rounded-circle img-raised">

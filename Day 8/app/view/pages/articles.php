@@ -5,6 +5,12 @@
     .pading-100{
         padding:100px;
     }
+    .jumbotron{
+        padding: 0rem 2rem;
+    }
+    .mb-10{
+        margin-bottom:10px;
+    }
 </style>
 <div class="page-header page-header-small">
     <div class="page-header-image" data-parallax="true" style="background-image: url('../../../assets/img/bg6.jpg');">
@@ -22,47 +28,29 @@
         <p class="category">Semua Artikel</p>
         <!-- Nav tabs -->
         <div class="card">
-        <div class="card-header">
-        <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#all" role="tab">
-                        Semua
-                    </a>
-                </li>
-                <form action="" method="post">
-                <?php if($conn){
-                    $selectKategori = "SELECT * FROM tb_kategori";
-                    $dataKategori = mysqli_query($conn, $selectKategori);
-                    foreach ($dataKategori as $data) {?>
-                    <li class="nav-item">
-                        <button type="submit" class="nav-link" data-toggle="tab" role="tab">
-                            <?= $data['name']?>
-                        </button>
-                    </li>
-                <?php }}else{ echo "Database Error";}?>
-                </form>
-            </ul>
-        </div>
-        <div class="card-body">
-        <div class="container">
-        <?php if($conn){
-            $selectArticle = "SELECT * FROM tb_post";
-            $dataArticle = mysqli_query($conn, $selectArticle);
-            foreach ($dataArticle as $data) {?>
-                <div class="jumbotron">
-                    <h1 class="display-4"><?= $data['title']?></h1>
-                    <p class="lead"><?= $data['content']?></p>
-                    <hr class="my-4">
-                    <p>Action for edit and delete a exist article</p>
-                    
-                    <form action="" method="get">
-                        <a href="editArticle.php?id=<?= $data['id']?>" class="btn btn-primary"><i class="now-ui-icons design-2_ruler-pencil"></i> Edit</a>
-                        <button type="submit" class="btn btn-danger" name="delete" value="<?=$data['id']?>"><i class="now-ui-icons ui-1_simple-delete"></i> Delete</button>
-                    </form>
+            <div class="card-body">
+                <div class="container">
+                    <?php if($conn){
+                        $selectArticle = "SELECT * FROM tb_post";
+                        $dataArticle = mysqli_query($conn, $selectArticle);
+                        foreach ($dataArticle as $data) {?>
+                            <div class="jumbotron">
+                                <img src="../../../assets/<?= $data['gambar']?>" alt="article" srcset="" class="mb-10">
+                                <h3><?= $data['title']?></h3>
+                                <p class="lead"><?php echo substr($data['content'], 0, 100) . '...';?></p>
+                                <hr class="my-4">
+                                <p>
+                                    <span>
+                                        <?php echo "Created at : ".date('d F Y', strtotime($data['date']));?>
+                                    </span>
+                                    <span style="color:red; margin-left:20px;">
+                                        <?php echo "Tag : ".$data['tag'];?>
+                                    </span>
+                                </p>
+                            </div>
+                    <?php }}else{}?>
                 </div>
-        <?php }}else{}?>
-    </div>
-        </div>
+            </div>
         </div>
     </div>
     <div class="col-md-10 ml-auto col-xl-3 mr-auto">
@@ -115,27 +103,6 @@
         </div>
         </div>
     </div>
-    </div>
-</div>
-
-<div class="section section-basic" id="basic-elements">
-    <div class="container">
-        <?php if($conn){
-            $selectArticle = "SELECT * FROM tb_post";
-            $dataArticle = mysqli_query($conn, $selectArticle);
-            foreach ($dataArticle as $data) {?>
-                <div class="jumbotron">
-                    <h1 class="display-4"><?= $data['title']?></h1>
-                    <p class="lead"><?= $data['content']?></p>
-                    <hr class="my-4">
-                    <p>Action for edit and delete a exist article</p>
-                    
-                    <form action="" method="get">
-                        <a href="editArticle.php?id=<?= $data['id']?>" class="btn btn-primary"><i class="now-ui-icons design-2_ruler-pencil"></i> Edit</a>
-                        <button type="submit" class="btn btn-danger" name="delete" value="<?=$data['id']?>"><i class="now-ui-icons ui-1_simple-delete"></i> Delete</button>
-                    </form>
-                </div>
-        <?php }}else{}?>
     </div>
 </div>
 <?php require_once('../layouts/footer.php')?>

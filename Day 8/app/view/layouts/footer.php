@@ -58,5 +58,10 @@
         }
         }
     </script>
+    <script>
+        $(document).ready( function () {
+            $('#tableMhs').DataTable();
+        } );
+    </script>
 </body>
 </html>

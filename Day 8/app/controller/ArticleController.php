@@ -1,4 +1,4 @@
-<?php
+    <?php
     if(isset($_POST['save'])){
         $judul = $_POST['judul'];
         $isi = $_POST['isi'];
