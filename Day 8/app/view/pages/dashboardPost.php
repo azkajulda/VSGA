@@ -23,10 +23,11 @@
                 <div class="form-group">
                     <input required type="text" name="tag" class="form-control" id="tag" placeholder="Tag Artikel">
                 </div>
-                <div class="form-group">
-                    <input required type="file" name="gambar" class="form-control" id="gambar" placeholder="Tag Artikel">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label" for="customFile">Choose file</label>
                 </div>
-                
+            
                 <center><button type="submit" class="btn btn-success" name="save">Save</button></center>
             </form><br><br>
 
