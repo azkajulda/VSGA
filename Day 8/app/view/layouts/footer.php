@@ -59,9 +59,19 @@
         }
     </script>
     <script>
-        $(document).ready( function () {
-            $('#tableMhs').DataTable();
-        } );
+        $('#customFile').on('change',function(){
+            //get the file name
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label').html(fileName);
+        })
+
+        $('#customFile-edit').on('change',function(){
+            //get the file name
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label.edit').html(fileName);
+        })
     </script>
 </body>
 </html>

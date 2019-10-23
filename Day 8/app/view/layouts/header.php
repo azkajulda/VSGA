@@ -23,13 +23,6 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../../../assets/demo/demo.css" rel="stylesheet" />
   <link href="../../../assets/css/azka.css" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-  <script>
-    $(document).ready( function () {
-        $('#tableMhs').DataTable();
-    } );
-  </script> 
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -79,7 +72,7 @@
                 <p>Dashboard</p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-              <a href="" class="dropdown-item">
+              <a href="dashboardKategori.php" class="dropdown-item">
                 Kelola Kategori
               </a>
               <a href="dashboardPost.php" class="dropdown-item">
