@@ -25,17 +25,17 @@
 <div class="section section-tabs pading-100">
     <div class="row">
     <div class="col-md-10 ml-auto col-xl-9 mr-auto">
-        <p class="category">Semua Artikel</p>
+        <p class="category">Artikel</p>
         <!-- Nav tabs -->
         <div class="card">
             <div class="card-body">
                 <div class="container">
                     <?php if($conn){
-                        $selectArticle = "SELECT * FROM tb_post";
+                        $selectArticle = "SELECT * FROM tb_post WHERE id_kategori='$_GET[id_kategori]'";
                         $dataArticle = mysqli_query($conn, $selectArticle);
                         foreach ($dataArticle as $data) {?>
                             <div class="jumbotron">
-                                <img src="../../../assets/<?= $data['gambar']?>" alt="article" srcset="" class="mb-10">
+                                <img src="<?= $data['gambar']?>" alt="article" srcset="" class="mb-10">
                                 <h3><?= $data['title']?></h3>
                                 <p class="lead"><?php echo substr($data['content'], 0, 100) . '...';?></p>
                                 <hr class="my-4">

@@ -45,6 +45,8 @@
         $update = "UPDATE tb_post SET date='$date', title='$title', content='$content', gambar='$target_file', tag='$tag', id_kategori='$id_kategori' WHERE id_post='$id'";
         mysqli_query($conn, $update);
         echo "<script type='text/javascript'>alert('Berhasil Mengedit Data');</script>";
+        echo "<script>window.location.href='dashboardPost.php';</script>";
+        exit;
     }
 ?>
 <link href="../../../assets/css/dashboard.css" rel="stylesheet" />
@@ -68,7 +70,7 @@
                     <input required type="text" name="title" class="form-control" id="title" placeholder="Judul Artikel">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" id="content" name="content" rows="4" placeholder="Isi Artikel"></textarea>
+                    <textarea required class="form-control" id="content" name="content" rows="4" placeholder="Isi Artikel"></textarea>
                 </div>
                 <div class="form-group">
                     <input required type="date" name="date" class="form-control" id="date" placeholder="Tanggal Artikel">
@@ -104,7 +106,7 @@
                     <input value="<?=$post['title']?>" required type="text" name="title" class="form-control" id="title" placeholder="Judul Artikel">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" id="content" name="content" rows="4" placeholder="Isi Artikel"><?=$post['content']?></textarea>
+                    <textarea required class="form-control" id="content" name="content" rows="4" placeholder="Isi Artikel"><?=$post['content']?></textarea>
                 </div>
                 <div class="form-group">
                     <input value="<?=$post['date']?>" required type="date" name="date" class="form-control" id="date" placeholder="Tanggal Artikel">
@@ -173,13 +175,14 @@
                         <th>Isi</th>
                         <th>Tanggal Post</th>
                         <th>Tag</th>
+                        <th>Kategori</th>
                         <th>Gambar Post</th>
                         <th>Action</th>
                     </thead>
                     <?php
                         if($conn){
                             $no = 1;
-                            $sql = "SELECT * FROM tb_post";
+                            $sql = "SELECT tb_post.id_post ,tb_post.date, tb_post.title, tb_post.content, tb_post.gambar, tb_post.tag, tb_kategori.name FROM tb_kategori JOIN tb_post ON tb_kategori.id_kategori=tb_post.id_kategori";
                             $result = mysqli_query($conn, $sql);
                             foreach ($result as $data) {
                                 echo "<tr>
@@ -188,8 +191,9 @@
                                             <td style='vertical-align: middle; word-wrap: break-word; display: block; height: 90px; overflow-y: auto;'>".$data['content']."</td>
                                             <td>".date('d F Y', strtotime($data['date']))."</td>
                                             <td>".$data['tag']."</td>
+                                            <td>".$data['name']."</td>
                                             <td>
-                                                <img width='50' height='50' src='../../../assets/".$data['gambar']."' alt='artikel'>
+                                                <img width='50' height='50' src='".$data['gambar']."' alt='artikel'>
                                             </td>
                                             <td>
                                                 <button type='submit' class='btn btn-danger btn-action' name='delete' value='".$data['id_post']."'>Delete</button>

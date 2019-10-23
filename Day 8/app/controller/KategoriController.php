@@ -12,15 +12,6 @@
         mysqli_query($conn, $delete);
         
         echo "<script type='text/javascript'>alert('Berhasil Menghapus Data');</script>";
-    }elseif(isset($_POST['edit1'])){
-        $id = $_POST['edit1'];
-        $judul = $_POST['name'];
-
-        $update = "UPDATE articles SET judul='$judul', isi='$isi' WHERE id='$id'";
-        mysqli_query($conn, $update);
-        echo "<script type='text/javascript'>alert('Berhasil Mengedit Data');</script>";
-        echo "<script>window.location.href='articles.php';</script>";
-        exit;
     }elseif(isset($_GET['id1'])){
         $id = $_GET['id1'];
         $getData = "SELECT * FROM tb_kategori WHERE id_kategori='$id'";

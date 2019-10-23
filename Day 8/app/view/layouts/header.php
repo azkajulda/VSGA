@@ -53,12 +53,12 @@
                 <p>Article</p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">
-              <form action="" method="get">
+              <form action="articles.php" method="get">
               <?php if($conn){
                     $selectKategori = "SELECT * FROM tb_kategori";
                     $dataKategori = mysqli_query($conn, $selectKategori);
                     foreach ($dataKategori as $data) {?>
-                    <button type="submit" name="kategori" value="<?= $data['id_kategori']?>" class="dropdown-item">
+                    <button type="submit" name="id_kategori" value="<?= $data['id_kategori']?>" class="dropdown-item">
                       <?= $data['name']?>
                     </button>
               <?php }}else{ echo "Database Error";}?>
@@ -78,10 +78,10 @@
               <a href="dashboardPost.php" class="dropdown-item">
                 Kelola Post
               </a>
-              <a href="" class="dropdown-item">
+              <a href="dashboardStatis.php" class="dropdown-item">
                 Kelola Statis
               </a>
-              <a href="" class="dropdown-item">
+              <a href="dashboardKomentar.php" class="dropdown-item">
                 Kelola Komentar
               </a>
             </div>
@@ -89,7 +89,7 @@
 
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown">
-                <img width="25" height="25" src="../../../assets/<?= $_SESSION['foto']?>" alt="Thumbnail Image" class="rounded-circle img-raised">
+                <img width="25" height="25" src="<?= $_SESSION['foto']?>" alt="Thumbnail Image" class="rounded-circle img-raised">
                 <p><?= $_SESSION['nama']?></p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink1">

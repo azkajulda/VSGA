@@ -6,11 +6,12 @@
       </div>
       <div class="container">
         <div class="photo-container">
-          <img class="rounded-circle img-raised" width="200" height="200" src="../../../assets/<?= $_SESSION['foto']?>" alt="Foto">
+          <img class="rounded-circle img-raised spin" width="200" height="200" src="<?= $_SESSION['foto']?>" alt="Foto">
         </div>
         <h3 class="title"><?= $_SESSION['nama']?></h3>
         <p class="category"><?= $_SESSION['email']?></p>
         <p class="category">Telepon : <?= $_SESSION['tlp']?></p>
+        <a href="editProfile.php?email=<?= $_SESSION['email']?>"><button type="submit" class="btn btn-primary" name="editProfile"><i class="now-ui-icons design-2_ruler-pencil spin"></i> Edit</button></a>
       </div>
     </div>
     <div class="section">
@@ -24,8 +25,13 @@
             <i class="fab fa-instagram"></i>
           </a>
         </div>
-        <h3 class="title">About me</h3>
-        <h5 class="description">An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.</h5>
+        <?php if($conn){
+            $selectKategori = "SELECT * FROM tb_statis";
+            $dataKategori = mysqli_query($conn, $selectKategori);
+            foreach ($dataKategori as $data) {?>
+            <h3 class="title"><?= $data['title']?></h3>
+            <h5 class="description"><?= $data['content']?></h5>
+        <?php }}else{ echo "Database Error";}?>
         <div class="row">
           <div class="col-md-6 ml-auto mr-auto">
             <h4 class="title text-center">My Portfolio</h4>

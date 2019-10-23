@@ -72,6 +72,13 @@
             //replace the "Choose a file" label
             $(this).next('.custom-file-label.edit').html(fileName);
         })
+
+        $('#customFile-foto').on('change',function(){
+            //get the file name
+            var fileName = $(this).val();
+            //replace the "Choose a file" label
+            $(this).next('.custom-file-label.foto').html(fileName);
+        })
     </script>
 </body>
 </html>
